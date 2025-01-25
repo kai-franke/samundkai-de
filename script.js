@@ -34,5 +34,5 @@ function updateCounter() {
     "counter"
   ).textContent = `${years} ${words[0]}, ${months} ${words[1]}, ${days} ${words[2]}`;
 }
-    
+
 document.addEventListener("DOMContentLoaded", updateCounter);
