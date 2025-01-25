@@ -1,0 +1,107 @@
+:root {
+  --background-color: #acb9b1;
+  --text-color: white;
+  --hover-color: #acb9b1;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* permanent-marker-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/permanent-marker-v16-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* poppins-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/poppins-v22-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  background: url("images/samundkai_background.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  font-family: "Permanent Marker", cursive;
+  font-size: 5rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px var(--shadow-color);
+  margin: 25vh 0 0 0;
+}
+
+.date {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px var(--shadow-color);
+  margin: 0;
+}
+
+.counter {
+  font-size: 1rem;
+  text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+.email-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.email-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  transition: fill 0.3s;
+  color: var(--text-color);
+}
+
+.email-icon path {
+  fill: var(--text-color);
+}
+
+.email-link:hover .email-icon path {
+  fill: var(--hover-color);
+}
+
+.email-link:hover {
+  color: var(--hover-color);
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .date {
+    font-size: 1.2rem;
+  }
+}
