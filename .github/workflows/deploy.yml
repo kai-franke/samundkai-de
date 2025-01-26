@@ -25,3 +25,14 @@ jobs:
           # args an ftp-deploy, damit Zertifikatsfehler nicht zum Abbruch führen
           args: "--security=loose"
           # alternativ: '--security=sslExplicit' (wenn das Zertifikat gültig ist)
+        continue-on-error: true
+        timeout-minutes: 10
+
+      - name: Retry FTP deployment
+        if: failure()
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+        timeout-minutes: 10
