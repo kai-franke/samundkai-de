@@ -55,6 +55,7 @@ body {
   padding: 1rem 0;
   margin: 25vw 0 0 0;
   text-align: center;
+  backdrop-filter: blur(2px);
 }
 
 .main-title {
@@ -107,7 +108,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .date {
     font-size: 1.2rem;
   }
