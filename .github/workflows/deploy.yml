@@ -23,6 +23,5 @@ jobs:
           protocol: ftp
           # Wenn du SFTP benutzen kannst:
           # protocol: sftp
-          local-dir: ./httpdocs  # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
-          server-dir: /httpdocs  # Verzeichnis auf deinem Webspace (ggf. anpassen)
-          method: auto
+          local-dir: ./httpdocs/ # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
+          server-dir: /httpdocs/ # Verzeichnis auf deinem Webspace (ggf. anpassen)
