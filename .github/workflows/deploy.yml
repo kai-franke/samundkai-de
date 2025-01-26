@@ -20,8 +20,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          # Wenn du SFTP benutzen kannst:
-          # protocol: sftp
-          local-dir: ./httpdocs/ # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
-          server-dir: /httpdocs/ # Verzeichnis auf deinem Webspace (ggf. anpassen)
+          protocol: sftp # Ändere dies zu 'ftp', wenn SFTP nicht unterstützt wird
+          local-dir: ./httpdocs/  # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
+          server-dir: /httpdocs/  # Verzeichnis auf deinem Webspace (ggf. anpassen)
+          timeout: 60000 # Timeout auf 60 Sekunden erhöhen
