@@ -20,7 +20,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          # protocol: ftp
           # Wenn du SFTP benutzen kannst:
           protocol: sftp
           local-dir: ./dist  # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
