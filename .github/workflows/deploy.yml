@@ -1,0 +1,28 @@
+name: Deploy to netcup
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Hier ggf. noch deine Build-Schritte (z.B. npm install, npm run build, etc.)
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          # Wenn du SFTP benutzen kannst:
+          # protocol: sftp
+          local-dir: ./dist  # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
+          server-dir: /html  # Verzeichnis auf deinem Webspace (ggf. anpassen)
+          method: auto
