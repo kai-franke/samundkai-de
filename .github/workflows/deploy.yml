@@ -12,15 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Hier ggf. noch deine Build-Schritte (z.B. npm install, npm run build, etc.)
-
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST }} # z.B. ftp.deinedomain.de
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp # Ändere dies zu 'ftp', wenn SFTP nicht unterstützt wird
-          local-dir: /httpdocs/  # Ordner in deinem Repo, der tatsächlich hochgeladen werden soll
-          server-dir: /httpdocs/  # Verzeichnis auf deinem Webspace (ggf. anpassen)
-          timeout: 60000 # Timeout auf 60 Sekunden erhöhen
+          protocol: ftps # für FTPS (explizit)
+          port: 21 # Standardport bei FTPS (explizit)
+          local-dir: "./httpdocs" # Ordner in deinem Repo
+          server-dir: "/httpdocs"
+          # args an ftp-deploy, damit Zertifikatsfehler nicht zum Abbruch führen
+          args: "--security=loose"
+          # alternativ: '--security=sslExplicit' (wenn das Zertifikat gültig ist)
